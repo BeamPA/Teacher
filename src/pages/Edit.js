@@ -75,7 +75,7 @@ const Edit = () => {
             icon: "success",
             title: "บันทึกเรียบร้อยแล้ว",
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500      
         });
         } else {
         Swal.fire({
@@ -118,19 +118,26 @@ const Edit = () => {
 
     return (
     <div>
-        <h1 className="font-IBM font-bold text-4xl m-10">แก้ไขข้อมูล</h1>
-        <div className=" bg-white flex justify-between items-center p-10">
-            <div className="bg-white p-12 ml-20 rounded-md text-xl ">
-
-                <h1 className="font-IBM font-bold mb-4">รหัสวิชา</h1>
+        <div className="bg-white h-screen flex justify-between items-center p-10">
+            <div className="bg-white p-12 ml-20 rounded-md text-xl overflow-y-auto ">
+            <div className="bg-white"
+                style={{
+                    position: 'absolute',
+                    top: '50px',
+                    left: '350px',
+                    width: '384px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
+            <h1 className="font-IBM font-bold text-black text-4xl mb-10">แก้ไขข้อมูล</h1>
+                <h1 className="font-IBM font-bold mb-4 text-black">รหัสวิชา</h1>
                 <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-6 flex items-center mr-10">
                     <div className="flex font-IBM font-bold space-x-4">
                         <p>ดึงข้อมูลรหัสวิชาจาก database</p>
-                        
                     </div>
                 </form>
 
-                <h1 className="font-IBM font-bold mb-2">ชื่อวิชา</h1>
+                <h1 className="font-IBM font-bold  text-black mb-2">ชื่อวิชา</h1>
                 <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-6 flex items-center mr-10">
                     <div className="flex font-IBM font-bold space-x-4">
                         <p>ดึงข้อมูลชื่อวิชาจาก database</p>              
@@ -139,7 +146,7 @@ const Edit = () => {
 
                 <div className="flex">
                     <div>
-                        <h1 className="font-IBM font-bold">หน่วยกิต</h1>
+                        <h1 className="font-IBM font-bold text-black">หน่วยกิต</h1>
                         <form className="bg-rose-100 p-4 rounded-[15px] w-40 mb-6 mr-10">
                             <div className="flex items-center font-IBM font-bold justify-center ">
                                 <p>ดึง</p>         
@@ -148,10 +155,9 @@ const Edit = () => {
                     </div>
 
                     <div>
-                        <h1 className="font-IBM font-bold">ห้องเรียน</h1>
+                        <h1 className="font-IBM font-bold  text-black">ห้องเรียน</h1>
                         <div className="flex font-IBM font-bold ">
-                            <DropdownSection
-                                  
+                            <DropdownRoomSection
                                 items={['17204(60)', '17302(30)']} 
                                 align="left" 
                                 onSelect={handleRoomChange}
@@ -160,7 +166,7 @@ const Edit = () => {
                     </div>               
                 </div>
 
-                <h1 className="font-IBM font-bold ">สาขา</h1> 
+                <h1 className="font-IBM font-bold  text-black ">สาขา</h1> 
                 <div style={{ position: 'relative' }}>
                     <div
                         onClick={toggleDropdown}
@@ -176,7 +182,7 @@ const Edit = () => {
                             top: '30px',
                             left: '0',
                             width: '384px',
-                            maxHeight: '160px', 
+                            maxHeight: '250px', 
                             overflowY: 'auto',
                             display: 'flex',
                             flexDirection: 'column',
@@ -188,7 +194,7 @@ const Edit = () => {
                             {option.subOptions && (
                             <div style={{ marginLeft: '50px' }}>
                                 {option.subOptions.map((subOption) => (
-                                <label key={subOption} style={{ marginRight: '30px' }}>
+                                <label key={subOption} style={{ marginRight: '28px' }}>
                                     <input
                                     type="checkbox"
                                     checked={selectedOptions.includes(`${option.id}-${subOption}`)}
@@ -204,12 +210,21 @@ const Edit = () => {
                     </div>
                     )}
                 </div>
+                </div>
             </div>
 
-            <div className="bg-white p-10 rounded-md w-98 ml-20">
+            <div className="bg-white p-10 rounded-md w-98 ml-20"
+                style={{
+                    position: 'absolute',
+                    top: '50px',
+                    left: '750px',
+                    width: '500px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}>
                 
-                <h2 className="p-1.5 text-2xl font-bold mb-2 text-center text-black font-IBM ml-10 bg-white">หมู่เรียน</h2>
-                <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-2 flex items-center ml-10" >
+                <h2 className="p-1.5 text-2xl font-bold mb-2 text-center text-black font-IBM ml-20 bg-white">หมู่เรียน</h2>
+                <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-2 flex items-center ml-20" >
                     <div className="flex font-IBM font-bold space-x-4 text-lg">
                         <DropdownSection 
                             label="ประเภท" 
@@ -229,7 +244,7 @@ const Edit = () => {
                             onSelect={handleCsecChange} />
                     </div>
                 </form>
-                <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-2 flex items-center justify-end ml-10">
+                <form className="bg-rose-100 p-4 rounded-[15px] w-96 mb-2 flex items-center justify-end ml-20">
                     <div className="flex-1 font-IBM font-bold w-96 self-center text-lg">
                         <DropdownDay label="วัน" items={['จันทร์','อังคาร','พุธ','พฤหัสบดี','ศุกร์','เสาร์','อาทิตย์']} 
                                     selectedDay={selectedDay} onSelectDay={handleDayChange}  />
@@ -255,20 +270,20 @@ const Edit = () => {
                         </div>
                     </div>
                 </form>
-                <div className="bg-white flex items-center justify-center w-96 h-32 ml-10">
-                    <button 
+                <div className="bg-white flex items-center justify-center w-96 h-32 ml-20">
+                    <Link to='/form'
                     className="text-center w-32 btn btn-success 
                                 font-IBM font-bold text-white text-2xl mr-4"
                     onClick={success}
                     >
                     ตกลง
-                    </button>
-                    <button 
+                    </Link>
+                    <Link to='/form'
                     className="text-center w-32 btn btn-error
                                 font-IBM font-bold text-white text-2xl" 
                     >
                     ยกเลิก
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
@@ -335,12 +350,62 @@ const DropdownSection = ({ label, items, align, onSelect }) => {
             open={isOpen}
             onClick={() => setIsOpen(!isOpen)}
             >
-            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-28 focus:bg-white">
+            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-28 hover:bg-white">
                 {selectedItem}
             </summary>
             <ul
                 className={`p-1 shadow menu dropdown-content z-[1] bg-pink-50 text-black 
                         rounded-[15px] w-28 max-h-[10rem] overflow-auto ${
+                align === 'right' ? 'origin-top-right' : ''
+                }`}
+            >
+                <li>
+                {items.map((item) => (
+                    <a key={item} 
+                    onClick={() => handleItemClick(item)} 
+                    className="Hover:bg-black Hover:text-white">
+                    {item}
+                    </a>
+                ))}
+                </li>
+            </ul>
+            </details>
+        </div>
+        </div>
+    );
+};
+
+const DropdownRoomSection = ({ label, items, align, onSelect }) => {
+    const [selectedItem, setSelectedItem] = useState(items[0]);
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    useOutsideClick(dropdownRef, () => setIsOpen(false));
+
+    const handleItemClick = (item) => {
+        setSelectedItem(item);
+        onSelect(item);
+        setIsOpen(false);
+    };
+
+    return (
+        <div className={` mb-4 flex-1 w-28 ${align === 'right' ? 'ml-auto' : ''}`} ref={dropdownRef}>
+        <label htmlFor="dropdown" className="text-black font-IBM mb-2 w-24  ">
+            {label}
+        </label>
+        <div>
+            <details
+            role="button"
+            className="flex items-center dropdown"
+            open={isOpen}
+            onClick={() => setIsOpen(!isOpen)}
+            >
+            <summary className="m-0.5 btn bg-rose-100 text-black font-IBM rounded-[15px] w-44 h-14 hover:bg-white">
+                {selectedItem}
+            </summary>
+            <ul
+                className={`p-1 shadow menu dropdown-content z-[1] bg-pink-50 text-black 
+                        rounded-[15px] w-44 max-h-[10rem] overflow-auto ${
                 align === 'right' ? 'origin-top-right' : ''
                 }`}
             >
@@ -383,7 +448,7 @@ const DropdownDay = ({ label, items, align, maxItems, selectedDay, onSelectDay }
             open={isOpen}
             onClick={() => setIsOpen(!isOpen)}
             >
-            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-74 focus:bg-white">{selectedItem}</summary>
+            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-74 hover:bg-white">{selectedItem}</summary>
             <ul className={`p-1 shadow menu dropdown-content z-[1] bg-pink-50 text-black rounded-[15px] w-80
                             max-h-[10rem] overflow-auto ${align === 'right' ? 'origin-top-right' : ''}`}>
                 <li>
@@ -419,7 +484,7 @@ const DropdownTimeRange = ({ label, items, align, maxItems,onSelectTime }) => {
             className="flex items-center dropdown"
             open={isOpen}
             onClick={() => setIsOpen(!isOpen)}>
-            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-32 focus:bg-white">{selectedItem}</summary>
+            <summary className="m-0.5 btn bg-white text-black font-IBM rounded-[15px] w-32 hover:bg-white">{selectedItem}</summary>
             <ul className={`p-1 shadow menu dropdown-content z-[1] bg-pink-50 text-black rounded-[15px] w-32
                             max-h-[10rem] overflow-auto ${align === 'right' ? 'origin-top-right' : ''}`}>
               <li>

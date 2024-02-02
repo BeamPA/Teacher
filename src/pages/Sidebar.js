@@ -15,7 +15,7 @@ import {
 const Menus = [
   { title: 'หน้าหลัก', src: 'Chart_fill', link: '/', icon: <MdOutlineDashboard /> },
   { title: 'ตารางสอน', src: 'Chat', icon: <BsChatLeftText /> , link: '/', },
-  { title: 'แบบฟแร์มข้อมูลรายวิชา', src: 'User', icon: <MdAccountCircle /> , link: '/form',},
+  { title: 'แบบฟอร์มข้อมูลรายวิชา', src: 'User', icon: <MdAccountCircle /> , link: '/form',},
  
   { title: 'Logout', src: 'Logout', icon: <MdLogout /> },
 ];
