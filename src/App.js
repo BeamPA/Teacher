@@ -12,8 +12,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="flex">
-        <h1>beam</h1>
         <Sidebar />
+        <h1>beam</h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />
